@@ -5,16 +5,16 @@
 <title>Customer Register</title>
 <!-- CSS only -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="card">
+		<div class="card" style="width: 50rem;">
 			<div class="card-header text-center bg-primary text-white">
-				<h2>Customer Registration: Google reCAPTCHA V2 Checkbox</h2>
+				<h2>Customer Registration: reCAPTCHA v3</h2>
 			</div>
 			<div class="card-body">
-				<form th:action ="@{/customer/save}" method="POST" th:object="${customer}">
+				<form id="demo-form"  th:action ="@{/customer/save2}" method="POST" th:object="${customer}">
 					<!-- group#1 -->
 					<div class="row pb-3">
 						<div class="col-2"> Name</div>
@@ -46,19 +46,15 @@
 							<input type="text" th:field="*{address}" class="form-control">
 						</div>
 					</div>
-					<!-- group#4 -->
-					<div class="row pb-3">
-						<div class="col-2"></div>
-						<div class="col-6">
-						<div class="g-recaptcha" data-sitekey="6LdeO8QpAAAAAH2pzgOFkENQ9ycJKwi_5Vkiqyv6"></div>
-						</div>
-					</div>
+					<!-- group#4 -->					
+					<button class="btn btn-success g-recaptcha" 
+                      data-sitekey="6LcfIsUpAAAAACQZJB8_7TQxmUvTcDWl3ApUontn"
+                      data-callback='onSubmit' 
+                      data-action='submit'>Add Customer</button>        
+        
+					<a th:href ="@{/customer/all}" class="btn btn-info" style="margin-left:20px;" >View All</a>
 					
-					<input type="submit" value="Add Customer" class="btn btn-success">
-					
-					<a th:href ="@{/customer/all}" class="btn btn-info" style="margin-left:20px;">View All</a>
-					
-					<a th:href ="@{/customer/register2}" class="btn btn-info" style="margin-left:20px;" >reCAPTCHA V3</a>
+					<a th:href ="@{/customer/register}" class="btn btn-info" style="margin-left:20px;" >reCAPTCHA V2</a>
 					
 				</form>
 			
@@ -70,5 +66,12 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	   function onSubmit(token) {
+	     document.getElementById("demo-form").submit();
+	   }
+	 </script>
+ 
 </body>
 </html>

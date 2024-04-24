@@ -18,9 +18,17 @@ public class CaptchaValidator {
 	@Value("${google.recaptcha.url}")
 	private String url;
 	
+	@Value("${google.recaptcha.url2}")
+	private String url2;
+	
 	public boolean isValid(String captcha) {
-		CaptchaResponse resp =rt.postForObject(url+captcha, null, CaptchaResponse.class);
-		
+		CaptchaResponse resp = rt.postForObject(url + captcha, null, CaptchaResponse.class);		
+		return resp.isSuccess();
+	}
+	
+	public boolean isValid2(String captcha) {
+		CaptchaResponse resp = rt.postForObject(url2 + captcha, null, CaptchaResponse.class);		
 		return resp.isSuccess();
 	}
 }
+

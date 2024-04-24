@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.riigsoft</groupId>
-	<artifactId>GoogleCaptchaApp</artifactId>
+	<artifactId>GoogleCaptchaAppV2V3</artifactId>
 	<version>1.0</version>
-	<name>GoogleCaptchaApp</name>
+	<name>GoogleCaptchaAppV2V3</name>
 	<description>GooglereCaptcha</description>
 	<properties>
 		<java.version>1.8</java.version>
